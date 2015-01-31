@@ -1,4 +1,10 @@
 language: csharp
 solution: ./src/GameOfLife.sln
+install:
+  - nuget restore ./src/csmacnz.Coveralls.sln
+  - chmod +x ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe
+  - sudo apt-get install nunit-console
 script:
   - xbuild /p:Configuration=Release ./src/GameOfLife.sln
+  - nunit-console ./src/GameOfLife.NUnit.Tests/bin/Release/GameOfLife.NUnit.Tests.dll
+  - mono ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./src/GameOfLife.xUnit.Tests/bin/Release/GameOfLife.xUnit.Tests.dll
