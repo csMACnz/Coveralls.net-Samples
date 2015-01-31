@@ -1,0 +1,4 @@
+language: csharp
+solution: ./src/GameOfLife.sln
+script:
+  - xbuild /p:Configuration=Release ./src/GameOfLife.sln
