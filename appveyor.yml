@@ -12,6 +12,7 @@ environment:
 before_build:
   - nuget restore ".\src\GameOfLife.sln"
 build:
+  project: .\src\GameOfLife.sln
   verbosity: minimal
 test_script:
 - ps: >-
