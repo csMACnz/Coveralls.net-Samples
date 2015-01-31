@@ -1,7 +1,7 @@
 language: csharp
 solution: ./src/GameOfLife.sln
 install:
-  - nuget restore ./src/csmacnz.Coveralls.sln
+  - nuget restore ./src/GameOfLife.sln
   - chmod +x ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe
   - sudo apt-get install nunit-console
 script:
