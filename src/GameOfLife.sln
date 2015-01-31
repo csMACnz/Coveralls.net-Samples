@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A9D21A3B-37A0-4C16-92A8-D54CE5D99DE4}"
 	ProjectSection(SolutionItems) = preProject
 		..\.travis.yml = ..\.travis.yml
+		..\appveyor.yml = ..\appveyor.yml
 	EndProjectSection
 EndProject
 Global
