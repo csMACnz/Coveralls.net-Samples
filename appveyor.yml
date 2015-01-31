@@ -7,6 +7,6 @@ assembly_info:
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
 before_build:
-  - nuget restore
+  - nuget restore ".\src\GameOfLife.sln"
 build:
   verbosity: minimal
