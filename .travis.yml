@@ -6,5 +6,5 @@ install:
   - sudo apt-get install nunit-console
 script:
   - xbuild /p:Configuration=Release ./src/GameOfLife.sln
-  - nunit-console ./src/GameOfLife.NUnit.Tests/bin/Release/GameOfLife.NUnit.Tests.dll
-  - mono ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./src/GameOfLife.xUnit.Tests/bin/Release/GameOfLife.xUnit.Tests.dll
+  - mono --debug --profile=monocov:outfile=monocovCoverage.cov ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./src/GameOfLife.xUnit.Tests/bin/Release/GameOfLife.xUnit.Tests.dll
+  - monocov --export-xml=monocovCoverage.xml monocovCoverage.cov
