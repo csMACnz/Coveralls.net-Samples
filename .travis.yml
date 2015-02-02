@@ -4,6 +4,7 @@ install:
   - nuget restore ./src/GameOfLife.sln
   - chmod +x ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe
   - sudo apt-get install nunit-console
+  - sudo apt-get install libmono-profiler-monocov
 script:
   - xbuild /p:Configuration=Release ./src/GameOfLife.sln
   - mono --debug --profile=monocov:outfile=monocovCoverage.cov ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./src/GameOfLife.xUnit.Tests/bin/Release/GameOfLife.xUnit.Tests.dll
