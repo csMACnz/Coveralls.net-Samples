@@ -6,7 +6,8 @@ install:
   - sudo apt-get install nunit-console
   - git clone --depth=50 git://github.com/csMACnz/monocov.git ../../csMACnz/monocov
   - cd ../../csMACnz/monocov
-  - configure
+  - ./configure
+  - make
   - make install
   - cd ../../csMACnz/Coveralls.net-Samples
 script:
