@@ -7,6 +7,7 @@ install:
   - sudo apt-get install libmono-cecil-private-cil
   - git clone --depth=50 git://github.com/csMACnz/monocov.git ../../csMACnz/monocov
   - cd ../../csMACnz/monocov
+  - cp /usr/lib/mono-cecil/Mono.Cecil.dll .
   - ./configure
   - make
   - make install
