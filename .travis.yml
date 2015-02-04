@@ -23,5 +23,5 @@ script:
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
   - cat monocovCoverage.cov
   - ls monocovCoverage
-  - FILES=monocovCoverage/*.xml
+  - FILES=monocovCoverage/*.x*l
   - for f in $FILES; do echo ""; echo "Processing $f file..."; cat $f; echo ""; done
