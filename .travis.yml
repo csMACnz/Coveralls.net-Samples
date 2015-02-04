@@ -9,7 +9,6 @@ install:
   - unzip /tmp/cecil-0.6-bin.zip -d /tmp/cecil
   - git clone --depth=50 git://github.com/csMACnz/monocov.git ../../csMACnz/monocov
   - cd ../../csMACnz/monocov
-  - cp /tmp/cecil/cecil-0.6/Mono.Cecil.dll .
   - ./configure
   - make
   - make install
