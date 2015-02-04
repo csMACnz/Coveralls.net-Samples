@@ -14,7 +14,7 @@ install:
   - cp /tmp/cecil/Mono.Cecil.dll .
   - ./configure
   - make
-  - make install
+  - sudo make install
   - cd ../../csMACnz/Coveralls.net-Samples
 script:
   - xbuild /p:Configuration=Release ./src/GameOfLife.sln
