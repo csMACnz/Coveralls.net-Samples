@@ -4,6 +4,7 @@ install:
   - nuget restore ./src/GameOfLife.sln
   - chmod +x ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe
   - sudo apt-get install nunit-console
+  - sudo apt-get install libmono-cecil-private-cil
   - git clone --depth=50 git://github.com/csMACnz/monocov.git ../../csMACnz/monocov
   - cd ../../csMACnz/monocov
   - ./configure
