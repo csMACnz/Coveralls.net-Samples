@@ -5,8 +5,9 @@ install:
   - chmod +x ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe
   - sudo apt-get install nunit-console
   - sudo apt-get install gtk-sharp2
-  - curl -sS http://go-mono.com/archive/cecil/cecil-0.6-bin.zip > /tmp/cecil-0.6-bin.zip
-  - unzip /tmp/cecil-0.6-bin.zip -d /tmp/cecil
+  - curl -sS https://www.nuget.org/api/v2/package/Mono.Cecil/0.9.5.4 > /tmp/mono.cecil.0.9.5.4.nupkg.zip
+  - unzip /tmp/mono.cecil.0.9.5.4.nupkg.zip -d /tmp/cecil
+  - cp /tmp/cecil/lib/net40/Mono.Cecil.dll .
   - git clone --depth=50 git://github.com/csMACnz/monocov.git ../../csMACnz/monocov
   - cd ../../csMACnz/monocov
   - ./configure
