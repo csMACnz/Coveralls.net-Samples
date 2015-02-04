@@ -4,6 +4,10 @@ install:
   - nuget restore ./src/GameOfLife.sln
   - chmod +x ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe
   - sudo apt-get install nunit-console
+  - git clone --depth=50 git://github.com/csMACnz/monocov.git ../../csMACnz/monocov
+  - cd ../../csMACnz/monocov
+  - make install
+  - cd ../../csMACnz/Coveralls.net-Samples
 script:
   - xbuild /p:Configuration=Release ./src/GameOfLife.sln
   - export LD_LIBRARY_PATH=/usr/local/lib
