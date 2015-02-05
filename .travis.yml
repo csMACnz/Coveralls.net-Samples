@@ -21,7 +21,7 @@ script:
   - export LD_LIBRARY_PATH=/usr/local/lib
   - mono --debug --profile=monocov:outfile=monocovCoverage.cov,+[GameOfLife],+[GameOfLife.xUnit.Tests] ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./src/GameOfLife.xUnit.Tests/bin/Release/GameOfLife.xUnit.Tests.dll  /noshadow
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
-  - cat monocovCoverage.cov
-  - ls monocovCoverage
-  - FILES=monocovCoverage/*.x*l
-  - for f in $FILES; do echo ""; echo "Processing $f file..."; cat $f; echo ""; done
+  - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
+  - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
+  - REPO_COMMIT_MESSAGE=$(git show -s --pretty=format:"%s")
+  - mono ./src/packages/coveralls.net.0.2.95/csmacnz.Coveralls.exe --monocov -i monocovCoverage --repoToken $COVERALLS_REPO_TOKEN --commitId $TRAVIS_COMMIT --commitBranch $TRAVIS_BRANCH --commitAuthor $REPO_COMMIT_AUTHOR --commitEmail $env:REPO_COMMIT_AUTHOR_EMAIL --commitMessage $REPO_COMMIT_MESSAGE --jobId $TRAVIS_JOB_ID
