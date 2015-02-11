@@ -24,4 +24,4 @@ script:
   - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
   - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
   - REPO_COMMIT_MESSAGE=$(git show -s --pretty=format:"%s")
-  - mono ./src/packages/coveralls.net.0.2.95/csmacnz.Coveralls.exe --monocov -i monocovCoverage --repoToken $COVERALLS_REPO_TOKEN --commitId $TRAVIS_COMMIT --commitBranch $TRAVIS_BRANCH --commitAuthor $REPO_COMMIT_AUTHOR --commitEmail $env:REPO_COMMIT_AUTHOR_EMAIL --commitMessage $REPO_COMMIT_MESSAGE --jobId $TRAVIS_JOB_ID
+  - mono ./src/packages/coveralls.net.0.3.106/csmacnz.Coveralls.exe --monocov -i monocovCoverage --repoToken $COVERALLS_REPO_TOKEN --commitId $TRAVIS_COMMIT --commitBranch $TRAVIS_BRANCH --commitAuthor $REPO_COMMIT_AUTHOR --commitEmail $env:REPO_COMMIT_AUTHOR_EMAIL --commitMessage $REPO_COMMIT_MESSAGE --jobId $TRAVIS_JOB_ID
