@@ -26,3 +26,10 @@ This branch uses the NUnit test runner to run the NUnit tests through OpenCover,
 [![Coverage Status](https://coveralls.io/repos/csMACnz/Coveralls.net-Samples/badge.svg?branch=xunit-monocov-travisci)](https://coveralls.io/r/csMACnz/Coveralls.net-Samples?branch=xunit-monocov-travisci)
 
 This branch uses the xUnit test runner to run the xUnit tests through monocov, and Coveralls.net is run over the results.  This branch is picked up and run by Travis-CI using the travis.yml file.
+
+
+### [xUnit + visual studio code coverage + Appveyor Branch](https://github.com/csMACnz/Coveralls.net-Samples/tree/xunit-vscodecoverage-appveyor) ###
+[![Build Status](https://travis-ci.org/csMACnz/Coveralls.net-Samples.svg?branch=xunit-vscodecoverage-appveyor)](https://travis-ci.org/csMACnz/Coveralls.net-Samples)
+[![Coverage Status](https://coveralls.io/repos/csMACnz/Coveralls.net-Samples/badge.svg?branch=xunit-vscodecoverage-appveyor)](https://coveralls.io/r/csMACnz/Coveralls.net-Samples?branch=xunit-vscodecoverage-appveyor)
+
+This branch uses the xUnit test runner to run the xUnit tests through vstest.console.exe with coverage on, converts to xml, and Coveralls.net is run over the results.  This branch is picked up and run by Appveyor using the appveyor.yml file.
