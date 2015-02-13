@@ -1,12 +1,32 @@
 version: 1.0.{build}
 skip_tags: true
+configuration: Release
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
   assembly_version: '{version}'
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: T4HU+3zXxONb3hR4a+rJbE0MctjwMjlbHrYVBaU4BRXp9OAWygYlNUnDZZkG7vHk
 before_build:
   - nuget restore ".\src\GameOfLife.sln"
 build:
+  project: .\src\GameOfLife.sln
   verbosity: minimal
+test_script:
+- ps: >-
+    vstest.console.exe /inIsolation /Enablecodecoverage /TestAdapterPath:".\src\packages\xunit.runner.visualstudio.2.0.0-rc1-build1030\build\_common\" .\src\GameOfLife.xUnit.Tests\bin\Debug\GameOfLife.xUnit.Tests.dll
+
+    $coverageFilePath = Resolve-Path -path "TestResults\*\*.coverage"
+    
+    $coverageFilePath = $coverageFilePath.ToString()
+    
+    if(Test-Path .\coverage.coveragexml){ rm .\coverage.coveragexml }
+
+    "C:\Program Files (x86)\Microsoft Visual Studio 11.0\Team Tools\Dynamic Code Coverage Tools\CodeCoverage.exe" analyze /output:coverage.coveragexml "$coverageFilePath"
+
+    Push-AppveyorArtifact .\coverage.coveragexml
+
+    .\src\packages\coveralls.net.0.3.106\csmacnz.Coveralls.exe --visualstudio -i coverage.coveragexml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
