@@ -25,7 +25,7 @@ test_script:
     
     if(Test-Path .\coverage.coveragexml){ rm .\coverage.coveragexml }
 
-    "C:\Program Files (x86)\Microsoft Visual Studio 11.0\Team Tools\Dynamic Code Coverage Tools\CodeCoverage.exe" analyze /output:coverage.coveragexml "$coverageFilePath"
+    ."C:\Program Files (x86)\Microsoft Visual Studio 11.0\Team Tools\Dynamic Code Coverage Tools\CodeCoverage.exe" analyze /output:coverage.coveragexml "$coverageFilePath"
 
     Push-AppveyorArtifact coverage.coveragexml
 
