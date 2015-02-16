@@ -17,7 +17,7 @@ build:
   verbosity: minimal
 test_script:
 - ps: >-
-    vstest.console.exe /inIsolation /Enablecodecoverage /TestAdapterPath:".\src\packages\xunit.runner.visualstudio.2.0.0-rc1-build1030\build\_common\" .\src\GameOfLife.xUnit.Tests\bin\Release\GameOfLife.xUnit.Tests.dll
+    vstest.console.exe /inIsolation /Enablecodecoverage /TestAdapterPath:".\src\packages\xunit.runner.visualstudio.2.0.0-rc1-build1030\build\_common\" .\src\GameOfLife.xUnit.Tests\bin\Release\GameOfLife.xUnit.Tests.dll /Settings:CodeCoverage.runsettings
 
     $coverageFilePath = Resolve-Path -path "TestResults\*\*.coverage"
     
