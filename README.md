@@ -29,7 +29,7 @@ This branch uses the xUnit test runner to run the xUnit tests through monocov, a
 
 
 ### [xUnit + visual studio code coverage + Appveyor Branch](https://github.com/csMACnz/Coveralls.net-Samples/tree/xunit-dynamiccodecoverage-appveyor) ###
-[![Build Status](https://travis-ci.org/csMACnz/Coveralls.net-Samples.svg?branch=xunit-dynamiccodecoverage-appveyor)](https://travis-ci.org/csMACnz/Coveralls.net-Samples)
+[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/v4m661b28npr789g/branch/xunit-dynamiccodecoverage-appveyor?svg=true)](https://ci.appveyor.com/project/MarkClearwater/coveralls-net-samples/branch/xunit-dynamiccodecoverage-appveyor)
 [![Coverage Status](https://coveralls.io/repos/csMACnz/Coveralls.net-Samples/badge.svg?branch=xunit-dynamiccodecoverage-appveyor)](https://coveralls.io/r/csMACnz/Coveralls.net-Samples?branch=xunit-dynamiccodecoverage-appveyor)
 
 This branch uses the xUnit test runner to run the xUnit tests through vstest.console.exe with coverage on, converts to xml using CodeCoverage.exe, and Coveralls.net is run over the results.  This branch is picked up and run by Appveyor using the appveyor.yml file.
