@@ -2,7 +2,6 @@ language: csharp
 solution: ./src/GameOfLife.sln
 install:
   - nuget restore ./src/GameOfLife.sln
-  - chmod +x ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe
   - sudo apt-get install nunit-console
   - sudo apt-get install gtk-sharp2
   - curl -sS https://api.nuget.org/packages/mono.cecil.0.9.5.4.nupkg > /tmp/mono.cecil.0.9.5.4.nupkg.zip
@@ -19,7 +18,7 @@ install:
 script:
   - xbuild /p:Configuration=Release ./src/GameOfLife.sln
   - export LD_LIBRARY_PATH=/usr/local/lib
-  - mono --debug --profile=monocov:outfile=monocovCoverage.cov,+[GameOfLife],+[GameOfLife.xUnit.Tests] nunit-console.exe ./src/GameOfLife.xUnit.Tests/bin/Release/GameOfLife.xUnit.Tests.dll  /noshadow
+  - mono --debug --profile=monocov:outfile=monocovCoverage.cov,+[GameOfLife],+[GameOfLife.xUnit.Tests] nunit-console ./src/GameOfLife.xUnit.Tests/bin/Release/GameOfLife.xUnit.Tests.dll  /noshadow
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
   - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
   - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
