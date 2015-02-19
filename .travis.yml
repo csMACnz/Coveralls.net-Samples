@@ -20,6 +20,8 @@ script:
   - export LD_LIBRARY_PATH=/usr/local/lib
   - mono --debug --profile=monocov:outfile=monocovCoverage.cov,+[GameOfLife],+[GameOfLife.NUnit.Tests] ./src/packages/NUnit.Runners.2.6.4/tools/nunit-console.exe "--noshadow" ./src/GameOfLife.NUnit.Tests/bin/Release/GameOfLife.NUnit.Tests.dll
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
+  - cat monocovCoverage.cov
+  - ls monocovCoverage
   - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
   - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
   - REPO_COMMIT_MESSAGE=$(git show -s --pretty=format:"%s")
