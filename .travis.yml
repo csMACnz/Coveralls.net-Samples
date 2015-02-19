@@ -18,7 +18,7 @@ install:
 script:
   - xbuild /p:Configuration=Release ./src/GameOfLife.sln
   - export LD_LIBRARY_PATH=/usr/local/lib
-  - MONO_OPTIONS=" --profile=monocov:outfile=monocovCoverage.cov,+[GameOfLife],+[GameOfLife.NUnit.Tests]" nunit-console4 ./src/GameOfLife.NUnit.Tests/bin/Release/GameOfLife.NUnit.Tests.dll
+  - MONO_OPTIONS=" --profile=monocov:outfile=monocovCoverage.cov,+[GameOfLife],+[GameOfLife.NUnit.Tests]" nunit-console ./src/GameOfLife.NUnit.Tests/bin/Release/GameOfLife.NUnit.Tests.dll
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
   - cat monocovCoverage.cov
   - ls monocovCoverage
