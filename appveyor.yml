@@ -17,12 +17,12 @@ build:
   verbosity: minimal
 test_script:
 - ps: >-
-    vstest.console.exe /inIsolation /Enablecodecoverage /TestAdapterPath:".\src\packages\xunit.runner.visualstudio.2.0.0-rc1-build1030\build\_common\" .\src\GameOfLife.xUnit.Tests\bin\Release\GameOfLife.xUnit.Tests.dll /Settings:CodeCoverage.runsettings
+    vstest.console.exe /inIsolation /Enablecodecoverage /TestAdapterPath:".\src\packages\xunit.runner.visualstudio.2.0.1\build\_common\" .\src\GameOfLife.xUnit.Tests\bin\Release\GameOfLife.xUnit.Tests.dll /Settings:CodeCoverage.runsettings
 
     $coverageFilePath = Resolve-Path -path "TestResults\*\*.coverage"
-    
+
     $coverageFilePath = $coverageFilePath.ToString()
-    
+
     if(Test-Path .\coverage.coveragexml){ rm .\coverage.coveragexml }
 
     ."C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Dynamic Code Coverage Tools\CodeCoverage.exe" analyze /output:coverage.coveragexml "$coverageFilePath"
