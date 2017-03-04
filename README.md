@@ -32,7 +32,7 @@ This branch uses the xUnit test runner to run the xUnit tests through monocov, a
 [![Build Status](https://travis-ci.org/csMACnz/Coveralls.net-Samples.svg?branch=nunit-monocov-travisci)](https://travis-ci.org/csMACnz/Coveralls.net-Samples)
 [![Coverage Status](https://coveralls.io/repos/csMACnz/Coveralls.net-Samples/badge.svg?branch=nunit-monocov-travisci)](https://coveralls.io/github/csMACnz/Coveralls.net-Samples?branch=nunit-monocov-travisci)
 
-This branch uses the NUnit test runner to run the xUnit tests through monocov, and Coveralls.net is run over the results.  This branch is picked up and run by Travis-CI using the travis.yml file.
+This branch uses the NUnit test runner to run the NUnit tests through monocov, and Coveralls.net is run over the results.  This branch is picked up and run by Travis-CI using the travis.yml file.
 
 
 ### [xUnit + visual studio code coverage + Appveyor Branch](https://github.com/csMACnz/Coveralls.net-Samples/tree/xunit-dynamiccodecoverage-appveyor) ###
