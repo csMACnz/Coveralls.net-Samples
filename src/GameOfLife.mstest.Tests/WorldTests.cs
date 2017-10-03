@@ -1,11 +1,11 @@
-﻿using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace GameOfLife.NUnit.Tests
+namespace GameOfLife.mstest.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class WorldTests
     {
-        [Test]
+        [TestMethod]
         public void World_ConstructNew_WidthCorrect()
         {
             const int expectedWidth = 5;
@@ -16,7 +16,7 @@ namespace GameOfLife.NUnit.Tests
             Assert.AreEqual(expectedWidth, world.Width);
         }
 
-        [Test]
+        [TestMethod]
         public void World_ConstructNew_HeightCorrect()
         {
             const int expectedHeight = 5;
