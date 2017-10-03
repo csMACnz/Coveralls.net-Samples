@@ -1,9 +1,0 @@
-language: csharp
-mono: none
-dotnet: 2.0.0
-dist: trusty
-sudo: false
-script:
-  - dotnet build -c Release
-  - dotnet test ./src/GameOfLife.xUnit.Tests/GameOfLife.xUnit.Tests.csproj -c Release
-  - dotnet test ./src/GameOfLife.mstest.Tests/GameOfLife.mstest.Tests.csproj -c Release

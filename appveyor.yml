@@ -6,8 +6,19 @@ dotnet_csproj:
   file: '**\*.csproj'
   version: '{version}'
   package_version: '{version}'
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: T4HU+3zXxONb3hR4a+rJbE0MctjwMjlbHrYVBaU4BRXp9OAWygYlNUnDZZkG7vHk
 build_script:
   - dotnet build -c Release
 test_script:
-  - dotnet test ./src/GameOfLife.xUnit.Tests/GameOfLife.xUnit.Tests.csproj -c Release
-  - dotnet test ./src/GameOfLife.mstest.Tests/GameOfLife.mstest.Tests.csproj -c Release
+- ps: >-
+    nuget install OpenCover -OutputDirectory packages -Version 4.6.166
+
+    nuget install coveralls.net -OutputDirectory packages
+
+    .\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:xunit.console.clr4.exe "-targetargs:""src\GameOfLife.xUnit.Tests\bin\$env:CONFIGURATION\GameOfLife.xUnit.Tests.dll"" /noshadow /appveyor" -filter:"+[GameOfLife*]*" -output:opencoverCoverage.xml
+
+    $coveralls = (Resolve-Path "packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
+
+    & $coveralls --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
