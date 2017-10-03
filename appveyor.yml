@@ -1,9 +1,13 @@
 version: 1.0.{build}
+image: Visual Studio 2017
 skip_tags: true
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
   version: '{version}'
   package_version: '{version}'
-build:
-  verbosity: minimal
+build_script:
+  dotnet build -c Release
+test_script:
+  dotnet test ./src/GameOfLife.xUnit.Tests/GameOfLife.xUnit.Tests.csproj -c Release
+  dotnet test ./src/GameOfLife.mstest.Tests/GameOfLife.mstest.Tests.csproj -c Release
