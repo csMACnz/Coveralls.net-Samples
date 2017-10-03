@@ -1,10 +1,9 @@
 language: csharp
-solution: ./src/GameOfLife.sln
-install:
-  - nuget restore ./src/GameOfLife.sln
-  - chmod +x ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe
-  - sudo apt-get install nunit-console
+mono: none
+dotnet: 1.0.4
+dist: trusty
+sudo: false
 script:
-  - xbuild /p:Configuration=Release ./src/GameOfLife.sln
-  - nunit-console ./src/GameOfLife.NUnit.Tests/bin/Release/GameOfLife.NUnit.Tests.dll
-  - mono ./src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./src/GameOfLife.xUnit.Tests/bin/Release/GameOfLife.xUnit.Tests.dll
+  - dotnet build -c Release
+  - dotnet test ./src/GameOfLife.xUnit.Tests/GameOfLife.xUnit.Tests.csproj -c Release
+  - dotnet test ./src/GameOfLife.mstest.Tests/GameOfLife.mstest.Tests.csproj -c Release
