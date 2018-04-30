@@ -9,11 +9,19 @@ These are sample configurations for using [coveralls.net](https://github.com/csM
 
 This branch represents the base application, with tests, so I can branch off of this with different build configurations and see how these are reported in different CI builds, coverage runners, and coveralls.io.
 
-### [xUnit + OpenCover + Appveyor Branch](https://github.com/csMACnz/Coveralls.net-Samples/tree/xunit-opencover-appveyor) ###
+### [.Net Core + xUnit + OpenCover + Appveyor Branch](https://github.com/csMACnz/Coveralls.net-Samples/tree/core-xunit-opencover-appveyor) ###
+[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/v4m661b28npr789g/branch/core-xunit-opencover-appveyor?svg=true)](https://ci.appveyor.com/project/MarkClearwater/coveralls-net-samples/branch/core-xunit-opencover-appveyor)
+[![Coverage Status](https://coveralls.io/repos/csMACnz/Coveralls.net-Samples/badge.svg?branch=core-xunit-opencover-appveyor)](https://coveralls.io/github/csMACnz/Coveralls.net-Samples?branch=core-xunit-opencover-appveyor)
+
+This is using the latest dotnet 2.1 global tools version of Coveralls.net.
+
+This branch has a .Net Core application using the xUnit test runner to run the xUnit tests through OpenCover, and Coveralls.net is run over the results.  This branch is picked up and run by Appveyor using the appveyor.yml file.
+
+### [.Net 4.5.1 + xUnit + OpenCover + Appveyor Branch](https://github.com/csMACnz/Coveralls.net-Samples/tree/xunit-opencover-appveyor) ###
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/v4m661b28npr789g/branch/xunit-opencover-appveyor?svg=true)](https://ci.appveyor.com/project/MarkClearwater/coveralls-net-samples/branch/xunit-opencover-appveyor)
 [![Coverage Status](https://coveralls.io/repos/csMACnz/Coveralls.net-Samples/badge.svg?branch=xunit-opencover-appveyor)](https://coveralls.io/github/csMACnz/Coveralls.net-Samples?branch=xunit-opencover-appveyor)
 
-This branch uses the xUnit test runner to run the xUnit tests through OpenCover, and Coveralls.net is run over the results.  This branch is picked up and run by Appveyor using the appveyor.yml file.
+This branch has a legacy .Net 4.5.1 Application using the xUnit test runner to run the xUnit tests through OpenCover, and Coveralls.net is run over the results.  This branch is picked up and run by Appveyor using the appveyor.yml file.
 
 ### [NUnit + OpenCover + Appveyor Branch](https://github.com/csMACnz/Coveralls.net-Samples/tree/nunit-opencover-appveyor) ###
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/v4m661b28npr789g/branch/nunit-opencover-appveyor?svg=true)](https://ci.appveyor.com/project/MarkClearwater/coveralls-net-samples/branch/nunit-opencover-appveyor)
