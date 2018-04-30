@@ -5,7 +5,7 @@ These are sample configurations for using [coveralls.net](https://github.com/csM
 
 ### [Sample Application Branch](https://github.com/csMACnz/Coveralls.net-Samples/tree/sample-application) ###
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/v4m661b28npr789g/branch/sample-application?svg=true)](https://ci.appveyor.com/project/MarkClearwater/coveralls-net-samples/branch/sample-application)
-[![Build Status](https://travis-ci.org/csMACnz/Coveralls.net-Samples.svg?branch=sample-application)](https://travis-ci.org/csmacnz/Coveralls.net-Samples)
+[![Build Status](https://travis-ci.org/csMACnz/Coveralls.net-Samples.svg?branch=sample-application)](https://travis-ci.org/csMACnz/Coveralls.net-Samples)
 
 This branch represents the base application, with tests, so I can branch off of this with different build configurations and see how these are reported in different CI builds, coverage runners, and coveralls.io.
 
