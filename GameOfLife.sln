@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife", "src\GameOfLif
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.xUnit.Tests", "src\GameOfLife.xUnit.Tests\GameOfLife.xUnit.Tests.csproj", "{D24E6FC9-167A-4BE5-9FD2-79C41F3325FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.mstest.Tests", "src\GameOfLife.mstest.Tests\GameOfLife.mstest.Tests.csproj", "{8D6045C3-CC03-4168-96C7-B55B1A72D231}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,22 +46,9 @@ Global
 		{D24E6FC9-167A-4BE5-9FD2-79C41F3325FF}.Release|x64.Build.0 = Release|x64
 		{D24E6FC9-167A-4BE5-9FD2-79C41F3325FF}.Release|x86.ActiveCfg = Release|x86
 		{D24E6FC9-167A-4BE5-9FD2-79C41F3325FF}.Release|x86.Build.0 = Release|x86
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231}.Debug|x64.ActiveCfg = Debug|x64
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231}.Debug|x64.Build.0 = Debug|x64
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231}.Debug|x86.ActiveCfg = Debug|x86
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231}.Debug|x86.Build.0 = Debug|x86
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231}.Release|x64.ActiveCfg = Release|x64
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231}.Release|x64.Build.0 = Release|x64
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231}.Release|x86.ActiveCfg = Release|x86
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FBBC9A98-21AB-44CE-8EAA-B2C93E8233F7} = {25451C0F-7012-4D77-A696-7986CDB3136E}
 		{D24E6FC9-167A-4BE5-9FD2-79C41F3325FF} = {25451C0F-7012-4D77-A696-7986CDB3136E}
-		{8D6045C3-CC03-4168-96C7-B55B1A72D231} = {25451C0F-7012-4D77-A696-7986CDB3136E}
 	EndGlobalSection
 EndGlobal
