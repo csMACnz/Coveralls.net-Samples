@@ -11,15 +11,17 @@ environment:
     secure: T4HU+3zXxONb3hR4a+rJbE0MctjwMjlbHrYVBaU4BRXp9OAWygYlNUnDZZkG7vHk
   CONFIGURATION: Release
 build_script:
-  - dotnet build -c $env:CONFIGURATION
+  - tsc  .\src\code.ts --outDir out
 test_script:
 - ps: >-
-    nuget install OpenCover -OutputDirectory packages -Version 4.6.166
+    nuget install Chutzpah -OutputDirectory packages -Version 4.3.4
 
     dotnet tool install coveralls.net --version 1.0.0-beta0001 --tool-path tools
 
-    .\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:xunit.console.clr4.exe "-targetargs:""src\GameOfLife.xUnit.Tests\bin\$env:CONFIGURATION\GameOfLife.xUnit.Tests.dll"" /noshadow /appveyor" -filter:"+[GameOfLife*]*" -output:opencoverCoverage.xml
+    $chutzpah = (Resolve-Path ".\packages\Chutzpah.*\tools\chutzpah.console.exe").ToString()
+
+    & $chutzpah "test\test.js" /failOnError /nologo /coverage /coveragejson chutzpah.json
 
     $coveralls = ".\tools\csmacnz.coveralls.exe"
 
-    & $coveralls --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
+    & $coveralls --chutzpah -i chutzpah.json --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID

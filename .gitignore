@@ -231,3 +231,6 @@ $RECYCLE.BIN/
 *.lnk
 
 tools
+packages
+out
+chutzpah.json
