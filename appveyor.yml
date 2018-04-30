@@ -17,7 +17,7 @@ test_script:
 
     dotnet tool install coveralls.net --version 1.0.0-beta0001 --tool-path tools
 
-    .\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:xunit.console.clr4.exe "-targetargs:""src\GameOfLife.xUnit.Tests\bin\Release\GameOfLife.xUnit.Tests.dll"" /noshadow /appveyor" -filter:"+[GameOfLife*]*" -output:opencoverCoverage.xml
+    .\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:xunit.console.clr4.exe "-targetargs:""src\GameOfLife.xUnit.Tests\bin\Release\netcoreapp2.0\GameOfLife.xUnit.Tests.dll"" /noshadow /appveyor" -filter:"+[GameOfLife*]*" -output:opencoverCoverage.xml
 
     $coveralls = ".\tools\csmacnz.coveralls.exe"
 
