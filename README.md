@@ -29,6 +29,12 @@ This branch has a legacy .Net 4.5.1 Application using the xUnit test runner to r
 
 This branch uses the NUnit test runner to run the NUnit tests through OpenCover, and Coveralls.net is run over the results.  This branch is picked up and run by Appveyor using the appveyor.yml file.
 
+### [Typescript + Chutzpah + Appveyor Branch](https://github.com/csMACnz/Coveralls.net-Samples/tree/typescript-chutzpah-appveyor) ###
+[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/v4m661b28npr789g/branch/typescript-chutzpah-appveyor?svg=true)](https://ci.appveyor.com/project/MarkClearwater/coveralls-net-samples/branch/typescript-chutzpah-appveyor)
+[![Coverage Status](https://coveralls.io/repos/csMACnz/Coveralls.net-Samples/badge.svg?branch=typescript-chutzpah-appveyor)](https://coveralls.io/github/csMACnz/Coveralls.net-Samples?branch=typescript-chutzpah-appveyor)
+
+This branch demonstrates Typescript + Chutzpah testing for coverage results that can be published using Coveralls.net. This branch is picked up and run by Appveyor using the appveyor.yml file.
+
 ### [xUnit + monocov + Travis-CI Branch](https://github.com/csMACnz/Coveralls.net-Samples/tree/xunit-monocov-travisci) ###
 [![Build Status](https://travis-ci.org/csMACnz/Coveralls.net-Samples.svg?branch=xunit-monocov-travisci)](https://travis-ci.org/csMACnz/Coveralls.net-Samples)
 [![Coverage Status](https://coveralls.io/repos/csMACnz/Coveralls.net-Samples/badge.svg?branch=xunit-monocov-travisci)](https://coveralls.io/github/csMACnz/Coveralls.net-Samples?branch=xunit-monocov-travisci)
