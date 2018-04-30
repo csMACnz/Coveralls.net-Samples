@@ -9,8 +9,9 @@ dotnet_csproj:
 environment:
   COVERALLS_REPO_TOKEN:
     secure: T4HU+3zXxONb3hR4a+rJbE0MctjwMjlbHrYVBaU4BRXp9OAWygYlNUnDZZkG7vHk
+  CONFIGURATION: Release
 build_script:
-  - dotnet build -c Release
+  - dotnet build -c $env:CONFIGURATION
 test_script:
 - ps: >-
     nuget install OpenCover -OutputDirectory packages -Version 4.6.166
