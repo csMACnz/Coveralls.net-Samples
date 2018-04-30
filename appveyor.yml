@@ -1,15 +1,9 @@
 version: 1.0.{build}
-image: Visual Studio 2017 Preview
+image: Visual Studio 2017
 skip_tags: true
-dotnet_csproj:
-  patch: true
-  file: '**\*.csproj'
-  version: '{version}'
-  package_version: '{version}'
 environment:
   COVERALLS_REPO_TOKEN:
     secure: T4HU+3zXxONb3hR4a+rJbE0MctjwMjlbHrYVBaU4BRXp9OAWygYlNUnDZZkG7vHk
-  CONFIGURATION: Release
 build_script:
   - tsc  .\src\code.ts --outDir out
 test_script:
