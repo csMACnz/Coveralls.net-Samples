@@ -9,16 +9,15 @@ dotnet_csproj:
 environment:
   COVERALLS_REPO_TOKEN:
     secure: T4HU+3zXxONb3hR4a+rJbE0MctjwMjlbHrYVBaU4BRXp9OAWygYlNUnDZZkG7vHk
-  CONFIGURATION: Release
 build_script:
-  - dotnet build -c $env:CONFIGURATION
+  - dotnet build -c Release
 test_script:
 - ps: >-
     nuget install OpenCover -OutputDirectory packages -Version 4.6.166
 
     dotnet tool install coveralls.net --version 1.0.0-beta0001 --tool-path tools
 
-    .\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:xunit.console.clr4.exe "-targetargs:""src\GameOfLife.xUnit.Tests\bin\$env:CONFIGURATION\GameOfLife.xUnit.Tests.dll"" /noshadow /appveyor" -filter:"+[GameOfLife*]*" -output:opencoverCoverage.xml
+    .\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:xunit.console.clr4.exe "-targetargs:""src\GameOfLife.xUnit.Tests\bin\Release\GameOfLife.xUnit.Tests.dll"" /noshadow /appveyor" -filter:"+[GameOfLife*]*" -output:opencoverCoverage.xml
 
     $coveralls = ".\tools\csmacnz.coveralls.exe"
 
