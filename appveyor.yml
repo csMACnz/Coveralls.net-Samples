@@ -12,7 +12,7 @@ test_script:
 - ps: >-
     nuget install Chutzpah -OutputDirectory packages -Version 4.3.4
 
-    dotnet tool install coveralls.net --version 1.0.0-beta0001 --tool-path tools
+    dotnet tool install coveralls.net --version 1.0.0-beta0002 --tool-path tools
 
     $chutzpah = (Resolve-Path ".\packages\Chutzpah.*\tools\chutzpah.console.exe").ToString()
 
