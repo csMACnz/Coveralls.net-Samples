@@ -29,6 +29,12 @@ This branch has a legacy .Net 4.5.1 Application using the xUnit test runner to r
 
 This branch uses the NUnit test runner to run the NUnit tests through OpenCover, and Coveralls.net is run over the results.  This branch is picked up and run by Appveyor using the appveyor.yml file.
 
+### [Report Generator + Appveyor Branch](https://github.com/csMACnz/Coveralls.net-Samples/tree/xunit-reportgenerator-appveyor) ###
+[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/v4m661b28npr789g/branch/xunit-reportgenerator-appveyor?svg=true)](https://ci.appveyor.com/project/MarkClearwater/coveralls-net-samples/branch/xunit-reportgenerator-appveyor)
+[![Coverage Status](https://coveralls.io/repos/csMACnz/Coveralls.net-Samples/badge.svg?branch=xunit-reportgenerator-appveyor)](https://coveralls.io/github/csMACnz/Coveralls.net-Samples?branch=xunit-reportgenerator-appveyor)
+
+This branch demonstrates pumping your results into report generator, then using the RG results files as a source for Coveralls.net. This branch is picked up and run by Appveyor using the appveyor.yml file.  The Report Generator command can be modified to take other compatible input formats as required.
+
 ### [Typescript + Chutzpah + Appveyor Branch](https://github.com/csMACnz/Coveralls.net-Samples/tree/typescript-chutzpah-appveyor) ###
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/v4m661b28npr789g/branch/typescript-chutzpah-appveyor?svg=true)](https://ci.appveyor.com/project/MarkClearwater/coveralls-net-samples/branch/typescript-chutzpah-appveyor)
 [![Coverage Status](https://coveralls.io/repos/csMACnz/Coveralls.net-Samples/badge.svg?branch=typescript-chutzpah-appveyor)](https://coveralls.io/github/csMACnz/Coveralls.net-Samples?branch=typescript-chutzpah-appveyor)
