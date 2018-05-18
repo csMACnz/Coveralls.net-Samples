@@ -11,12 +11,20 @@ dotnet_csproj:
 environment:
   COVERALLS_REPO_TOKEN:
     secure: T4HU+3zXxONb3hR4a+rJbE0MctjwMjlbHrYVBaU4BRXp9OAWygYlNUnDZZkG7vHk
+install_script:
+- ps: >-
+
+  if ($isLinux) {
+    sudo apt-get update
+    sudo apt-get install dotnet-sdk-2.1.300-preview2-008533
+  }
+  
 build_script:
   - dotnet build -c Release
 test_script:
 - ps: >-
 
-    dotnet tool install coveralls.net --version 1.0.0-beta0001 --tool-path tools
+    dotnet tool install coveralls.net --version 1.0.0-beta0002 --tool-path tools
 
     dotnet test src\GameOfLife.xUnit.Tests\GameOfLife.xUnit.Tests.csproj"" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=../../
 
