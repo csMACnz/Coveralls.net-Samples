@@ -12,11 +12,9 @@ environment:
   COVERALLS_REPO_TOKEN:
     secure: T4HU+3zXxONb3hR4a+rJbE0MctjwMjlbHrYVBaU4BRXp9OAWygYlNUnDZZkG7vHk
 install:
-- ps: >-
-  if ($isLinux) {
-    sudo apt-get update
-    sudo apt-get install dotnet-sdk-2.1.300-preview2-008533
-  }
+- sh: printf "Commands with sh Prefix run on Linux image only"
+- sh: sudo apt-get update
+- sh: sudo apt-get install dotnet-sdk-2.1.300-preview2-008533
 build_script:
   - dotnet build -c Release
 test_script:
