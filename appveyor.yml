@@ -25,9 +25,9 @@ test_script:
     dotnet test src\GameOfLife.xUnit.Tests\GameOfLife.xUnit.Tests.csproj"" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=../../
 
     if ($isLinux) {
-      $coveralls = ".\tools\csmacnz.coveralls"
+      $coveralls = ".\tools\csmacnz.Coveralls"
     } else {
-      $coveralls = ".\tools\csmacnz.coveralls.exe"
+      $coveralls = ".\tools\csmacnz.Coveralls.exe"
     }
 
     & $coveralls --opencover -i coverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
