@@ -20,7 +20,7 @@ build_script:
 test_script:
 - ps: >-
 
-    dotnet tool install coveralls.net --version 1.0.0-beta0003 --tool-path tools
+    dotnet tool install coveralls.net --version 1.0.0-beta0004 --tool-path tools
 
     dotnet test src\GameOfLife.xUnit.Tests\GameOfLife.xUnit.Tests.csproj"" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=../../
 
