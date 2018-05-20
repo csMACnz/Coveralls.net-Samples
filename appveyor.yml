@@ -15,7 +15,7 @@ install:
 - sh: printf "Commands with sh Prefix run on Linux image only"
 - sh: sudo apt-get update
 - sh: sudo apt-get install dotnet-sdk-2.1.300-rc1-008673 -y
-- sh: sudo apt-get install dotnet-runtime-2.1.0-rc1
+- sh: sudo apt-get install dotnet-runtime-2.1.0-rc1 -y
 build_script:
   - dotnet build -c Release
 test_script:
