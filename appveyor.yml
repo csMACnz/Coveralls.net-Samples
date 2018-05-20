@@ -26,7 +26,7 @@ test_script:
     dotnet test src\GameOfLife.xUnit.Tests\GameOfLife.xUnit.Tests.csproj"" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=../../
 
     if ($isLinux) {
-      $coveralls = ".\tools\csmacnz.Coveralls"
+      $coveralls = "./tools/csmacnz.Coveralls"
     } else {
       $coveralls = ".\tools\csmacnz.Coveralls.exe"
     }
