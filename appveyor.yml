@@ -22,8 +22,8 @@ build_script:
 test_script:
 - ps: >-
 
-    dotnet tool install coveralls.net --version 1.0.0-beta0003 --tool-path tools
+    dotnet tool install coveralls.net --version 1.0.0-beta0003 --tool-path $(pwd)/tools
 
     dotnet test src\GameOfLife.xUnit.Tests\GameOfLife.xUnit.Tests.csproj"" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=../../
 - cmd: .\tools\csmacnz.Coveralls.exe --opencover -i coverage.xml --useRelativePaths
-- sh: dotnet /home/appveyor/projects/coveralls-net-samples/tools/.store/coveralls.net/1.0.0-beta0003/coveralls.net/1.0.0-beta0003/tools/netcoreapp2.1/any/csmacnz.Coveralls.dll --opencover -i coverage.xml --useRelativePaths
+- sh: ./tools/csmacnz.Coveralls --opencover -i coverage.xml --useRelativePaths
