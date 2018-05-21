@@ -9,6 +9,7 @@ dotnet_csproj:
   version: '{version}'
   package_version: '{version}'
 environment:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   COVERALLS_REPO_TOKEN:
     secure: T4HU+3zXxONb3hR4a+rJbE0MctjwMjlbHrYVBaU4BRXp9OAWygYlNUnDZZkG7vHk
 install:
