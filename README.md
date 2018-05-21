@@ -1,5 +1,4 @@
 Sample Application
 ==================
 
-This branch contains the sample application that will be branched to run builds and coverage for
-different coverage tools, test frameworks, and publish to [coveralls.io](https://coveralls.io/).
+This branch contains some changes that will trigger a pull request (#7), that will still run coverage and publish to [coveralls.io](https://coveralls.io/) since it is in the same repository.
