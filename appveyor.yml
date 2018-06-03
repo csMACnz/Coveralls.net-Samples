@@ -1,7 +1,6 @@
 version: 1.0.{build}
 image:
 - Visual Studio 2017 Preview
-- ubuntu
 skip_tags: true
 dotnet_csproj:
   patch: true
@@ -11,23 +10,24 @@ dotnet_csproj:
 environment:
   COVERALLS_REPO_TOKEN:
     secure: T4HU+3zXxONb3hR4a+rJbE0MctjwMjlbHrYVBaU4BRXp9OAWygYlNUnDZZkG7vHk
-install:
-- sh: printf "Commands with sh Prefix run on Linux image only"
-- sh: sudo apt-get update
-- sh: sudo apt-get install dotnet-sdk-2.1.300-preview2-008533 -y
 build_script:
   - dotnet build -c Release
 test_script:
 - ps: >-
+    nuget install Chutzpah -OutputDirectory packages -Version 4.3.4
 
-    dotnet tool install coveralls.net --version 1.0.0-beta0002 --tool-path tools
+    dotnet tool install coveralls.net --version 1.1.0-beta001 --tool-path tools
 
     dotnet test src\GameOfLife.xUnit.Tests\GameOfLife.xUnit.Tests.csproj"" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=../../
 
-    if ($isLinux) {
-      $coveralls = ".\tools\csmacnz.Coveralls"
-    } else {
-      $coveralls = ".\tools\csmacnz.Coveralls.exe"
-    }
+    $chutzpah = (Resolve-Path ".\packages\Chutzpah.*\tools\chutzpah.console.exe").ToString()
 
-    & $coveralls --opencover -i coverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
+    & $chutzpah "test\test.js" /failOnError /nologo /coverage /coveragejson chutzpah.json
+
+    $coveralls = ".\tools\csmacnz.Coveralls"
+
+    & $coveralls --opencover -i coverage.xml --parallel 
+
+    & $coveralls --chutzpah -i chutzpah.json --parallel
+
+    & $coveralls csmacnz.Coveralls --completeParallelWork
