@@ -16,7 +16,7 @@ test_script:
 - ps: >-
     nuget install Chutzpah -OutputDirectory packages -Version 4.3.4
 
-    dotnet tool install coveralls.net --version 1.1.0-beta001 --tool-path tools
+    dotnet tool install coveralls.net --add-source https://ci.appveyor.com/nuget/coveralls-net-t37a9a9unhwk --version 1.1.0-unstable0026 --tool-path tools
 
     dotnet test src\GameOfLife.xUnit.Tests\GameOfLife.xUnit.Tests.csproj"" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=../../
 
