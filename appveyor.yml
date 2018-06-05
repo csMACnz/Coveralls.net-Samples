@@ -10,8 +10,11 @@ dotnet_csproj:
 environment:
   COVERALLS_REPO_TOKEN:
     secure: T4HU+3zXxONb3hR4a+rJbE0MctjwMjlbHrYVBaU4BRXp9OAWygYlNUnDZZkG7vHk
+install:
+  - set path=%programfiles(x86)%\\Microsoft SDKs\TypeScript\2.6;%path%
 build_script:
   - dotnet build -c Release
+  - tsc.exe .\src\code.ts --outDir out
 test_script:
 - ps: >-
     nuget install Chutzpah -OutputDirectory packages -Version 4.3.4
