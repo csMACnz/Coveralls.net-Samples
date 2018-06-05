@@ -33,4 +33,4 @@ test_script:
 
     & $coveralls --chutzpah -i chutzpah.json --parallel
 
-    & $coveralls csmacnz.Coveralls --completeParallelWork
+    & $coveralls --completeParallelWork
