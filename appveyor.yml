@@ -30,9 +30,11 @@ test_script:
     $coveralls = ".\tools\csmacnz.Coveralls"
 
     # Since I am faking parallel on the same build/job, i need to override the job number 
+    
     & $coveralls --opencover -i coverage.xml --parallel --jobId 0 --useRelativePaths
 
     # Since I am faking parallel on the same build/job, i need to override the job number
+    
     & $coveralls --chutzpah -i chutzpah.json --parallel --jobId 1 --useRelativePaths
 
     & $coveralls --completeParallelWork
