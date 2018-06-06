@@ -16,11 +16,14 @@ test_script:
 
     & $chutzpah "test\test.js" /failOnError /nologo /coverage /coveragejson chutzpah.json
 
-    # The TLS change was necessary on my development machine
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
     $zipDownloadPath="https://github.com/csMACnz/coveralls.net/releases/download/1.0.0/coveralls.net.1.0.0-windows.zip"
+
     Invoke-WebRequest -UseBasicParsing $zipDownloadPath -OutFile coveralls-windows.zip
+
     mkdir coveralls-windows
+
     Expand-Archive .\coveralls-windows.zip coveralls-windows
 
     $coveralls = ".\coveralls-windows\csmacnz.Coveralls.exe"
