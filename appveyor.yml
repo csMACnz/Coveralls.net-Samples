@@ -1,5 +1,5 @@
 version: 1.0.{build}
-image: Visual Studio 2017 Preview
+image: Visual Studio 2017
 skip_tags: true
 environment:
   COVERALLS_REPO_TOKEN:
@@ -12,12 +12,17 @@ test_script:
 - ps: >-
     nuget install Chutzpah -OutputDirectory packages -Version 4.3.4
 
-    dotnet tool install coveralls.net --version 1.0.0-beta0002 --tool-path tools
-
     $chutzpah = (Resolve-Path ".\packages\Chutzpah.*\tools\chutzpah.console.exe").ToString()
 
     & $chutzpah "test\test.js" /failOnError /nologo /coverage /coveragejson chutzpah.json
 
-    $coveralls = ".\tools\csmacnz.coveralls.exe"
+    # The TLS change was necessary on my development machine
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    $zipDownloadPath="https://github.com/csMACnz/coveralls.net/releases/download/1.0.0/coveralls.net.1.0.0-windows.zip"
+    Invoke-WebRequest -UseBasicParsing $zipDownloadPath -OutFile coveralls-windows.zip
+    mkdir coveralls-windows
+    Expand-Archive .\coveralls-windows.zip coveralls-windows
+
+    $coveralls = ".\coveralls-windows\csmacnz.Coveralls.exe"
 
     & $coveralls --chutzpah -i chutzpah.json --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
