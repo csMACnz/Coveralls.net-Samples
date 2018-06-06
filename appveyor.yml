@@ -29,8 +29,10 @@ test_script:
 
     $coveralls = ".\tools\csmacnz.Coveralls"
 
-    & $coveralls --opencover -i coverage.xml --parallel 
+    # Since I am faking parallel on the same build/job, i need to override the job number 
+    & $coveralls --opencover -i coverage.xml --parallel --jobId 0
 
-    & $coveralls --chutzpah -i chutzpah.json --parallel
+    # Since I am faking parallel on the same build/job, i need to override the job number
+    & $coveralls --chutzpah -i chutzpah.json --parallel --jobId 1
 
     & $coveralls --completeParallelWork
