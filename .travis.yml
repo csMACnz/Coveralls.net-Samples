@@ -1,4 +1,6 @@
 language: csharp
+mono:
+  - 4.2.3
 solution: ./src/GameOfLife.sln
 install:
   - nuget restore ./src/GameOfLife.sln
@@ -13,7 +15,7 @@ install:
   - ./configure
   - make
   - sudo make install
-  - cd ../../csMACnz/Coveralls.net-Samples
+  - cd $TRAVIS_BUILD_DIR
 script:
   - xbuild /p:Configuration=Release ./src/GameOfLife.sln
   - export LD_LIBRARY_PATH=/usr/local/lib
